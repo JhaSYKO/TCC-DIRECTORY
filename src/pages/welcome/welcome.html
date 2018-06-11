@@ -1,0 +1,41 @@
+<div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+  <div class="flb">
+    <div class="Aligner-item Aligner-item--top"></div>
+    <h1>Tahiti ProDev Browser</h1>
+    <div class="Aligner-item Aligner-item--bottom"></div>
+  </div>
+</div>
+
+<ion-content>
+
+    <ion-slides pager class="titleslide">
+
+        <ion-slide style="background-image: linear-gradient(red, orange)">
+          <h2>Bienvenue dans notre application!</h2>
+          <img src="../assets/imgs/orientation.png">
+          <p><b>Tahiti ProDev Browser</b> vous permet de recenser tous les professionnels informatiques de Tahiti selon leurs compétences (Php, Java etc...)</p>
+        </ion-slide>
+
+        <ion-slide style="background-image: linear-gradient(rgb(31, 175, 67), rgb(0, 162, 255))">
+          <h2>Simple et efficace</h2>
+          <img src="../assets/imgs/skill.png">
+          <p>Utilisez les filtres, sollicitez la barre de recherche... et c'est gagné! </p>
+        </ion-slide>
+      
+        <ion-slide style="background-image: linear-gradient(rgb(219, 99, 125), rgb(211, 181, 14))">
+          <h2>Allez encore plus loin!</h2>
+          <p>Géolocalisez, appelez, visitez son site, mettez en favoris... nous répondons à tous vos besoins</p>
+        </ion-slide>
+      
+        <ion-slide style="background-image: linear-gradient(rgb(255, 0, 170), rgb(103, 75, 156))">
+            <h2>Bravo!</h2>
+            <p>Le tutoriel est terminé! <br> Vous pouvez désormais utiliser l'application!<br> Bonne recherche!</p>
+
+
+            <div class="navigation">
+                <button ion-button color="light" outline [navPush] = "nextPage">Commencer</button>
+            </div>
+          </ion-slide>
+
+      </ion-slides>
+</ion-content>
