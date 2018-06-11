@@ -14,6 +14,8 @@ export class WelcomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
+
+  
   ionViewDidLoad() {
     setTimeout(() => this.splash = false, 4000);
   }
