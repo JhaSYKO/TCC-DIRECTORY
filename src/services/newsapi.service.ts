@@ -15,7 +15,7 @@ constructor(private http: Http){
 
 }
 
-public getListePro(): any{
+public getListePro(): Promise<any>{
     const url = `${this.baseUrl}${this.source}`;
     return this.http.get(url)
     .toPromise()
