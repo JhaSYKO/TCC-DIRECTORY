@@ -22,4 +22,5 @@ export class InfoProPage {
     console.log('ionViewDidLoad InfoProPage');
   }
  
+  
 }
