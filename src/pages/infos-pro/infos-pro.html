@@ -1,0 +1,89 @@
+<ion-header>
+    <ion-item>
+      <ion-avatar item-start>
+        <img src={{infos.logo}}>
+      </ion-avatar>
+      <h2>{{infos.name}}</h2>
+      <button ion-button item-end icon-right clear small>
+        <ion-icon name="star"></ion-icon>
+      </button>
+      <button ion-button item-end icon-right clear small>
+        <ion-icon name="thumbs-down"></ion-icon>
+        <div>{{infos.abus}}</div>
+      </button>
+    </ion-item>
+  </ion-header>
+  
+  <ion-content>
+  
+    <ion-list no-border>
+      <ion-list-header>
+        Descriptions
+      </ion-list-header>
+        <p>
+        {{infos.description}}
+      </p>
+      <ion-item item-end *ngFor="let skill of infos.skills">
+        <h2>{{skill.name}}</h2>
+      </ion-item>
+    </ion-list>
+  
+    <ion-list>
+      <ion-list-header>
+        Contact
+      </ion-list-header>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="">
+        </ion-avatar>
+        <h2>Mail</h2>
+        <p>{{infos.email}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="">
+        </ion-avatar>
+        <h2>Mobile</h2>
+        <p>{{infos.mobile}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="">
+        </ion-avatar>
+        <h2>Phone</h2>
+        <p>{{infos.phone}}</p>
+      </ion-item>
+    </ion-list>
+  
+    <ion-list>
+      <ion-list-header>
+        Réseaux sociaux
+      </ion-list-header>
+      <ion-item>
+        <ion-icon name="logo-facebook" item-start></ion-icon>
+        <h2>Facebook</h2>
+        <p>{{infos.facebook_url}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="logo-linkedin" item-start></ion-icon>
+        <h2>Linkedin</h2>
+        <p>{{infos.linkedin_url}}</p>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="logo-twitter" item-start></ion-icon>
+        <h2>Twitter</h2>
+        <p>{{infos.twitter_url}}</p>
+      </ion-item>
+    </ion-list>
+  
+    <ion-list>
+      <ion-list-header>
+        Site web
+      </ion-list-header>
+      <ion-item>
+        <p>{{infos.website_url}}</p>
+      </ion-item>
+    </ion-list>
+  
+  </ion-content>
+  

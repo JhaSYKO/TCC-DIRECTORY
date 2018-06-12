@@ -6,7 +6,9 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
-import { NewsApiService } from '../services/newsapi.service';
+import { InfosProPage } from '../pages/infos-pro/infos-pro';
+
+import { InfosProApiService } from '../services/infosproapi.service';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -20,7 +22,8 @@ import { SMS } from '@ionic-native/sms';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    InfosProPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { SMS } from '@ionic-native/sms';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    InfosProPage
   ],
   providers: [
     StatusBar,
@@ -40,7 +44,7 @@ import { SMS } from '@ionic-native/sms';
     SQLite,
     Geolocation,
     SMS,
-    NewsApiService,
+    InfosProApiService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

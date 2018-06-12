@@ -1,29 +1,18 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
-
+<!-- <button ion-button [navPush]="pushPage">acceder a info pro</button> -->
 <ion-content>
-
-  <ion-card *ngFor="let data of news.data">
-
-    <ion-item>
+  <!-- <ion-list *ngFor="let listepro of liste">
+  <ion-item >
       <ion-avatar item-start>
-        <img src={{data.logo}}>
+        <img src={{listepro.logo}}>
       </ion-avatar>
-      <h2>{{data.name}}</h2>
-      <button ion-button icon-left clear small>
-          <ion-icon name="star"></ion-icon>
-        </button>
-        <button ion-button icon-left clear small>
-            <ion-icon name="thumbs-down"></ion-icon>
-            <div>{{data.abus}}</div>
-          </button>
+      <h2>{{listepro.name}}</h2>
+      <button ion-button item-end icon-right clear small>
+        <ion-icon name="star"></ion-icon>
+      </button>
+      <button ion-button item-end icon-right clear small>
+        <ion-icon name="thumbs-down"></ion-icon>
+        <div>{{listepro.abus}}</div>
+      </button>
     </ion-item>
-    <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-        <ion-infinite-scroll-content></ion-infinite-scroll-content>
-      </ion-infinite-scroll> -->
-
-  </ion-card>
+  </ion-list> -->
 </ion-content>
