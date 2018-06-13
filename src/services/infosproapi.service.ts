@@ -12,14 +12,14 @@ export class InfosProApiService{
     private baseUrl = 'http://tccdirectory.1click.pf/api/';
     private business = 'business/';
     private businesses = 'businesses';
-    private id = '1';
 
     constructor(private http: Http){
 
     }
 
-    public getInfosPro(): Promise<any>{
-        const url = `${this.baseUrl}${this.business}${this.id}`;
+    public getInfosPro(id): Promise<any>{
+
+        const url = `${this.baseUrl}${this.business}${id}`;
         return this.http.get(url)
         .toPromise()
         .then(response => response.json() as InfosProApiGlobal)

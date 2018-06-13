@@ -1,18 +1,20 @@
 <!-- <button ion-button [navPush]="pushPage">acceder a info pro</button> -->
 <ion-content>
-  <ion-list *ngFor="let listepro of liste.data">
-  <ion-item >
-      <ion-avatar item-start>
-        <img src={{listepro.logo}}>
-      </ion-avatar>
-      <h2>{{listepro.name}}</h2>
-      <button ion-button item-end icon-right clear small>
-        <ion-icon name="star"></ion-icon>
-      </button>
-      <button ion-button item-end icon-right clear small>
-        <ion-icon name="thumbs-down"></ion-icon>
-        <div>{{listepro.abus}}</div>
-      </button>
-    </ion-item>
+  <ion-list >
+    <ion-card  *ngFor="let listepro of liste.data" (click)="pushPageInfosPro(listepro.id)">
+      <ion-item>
+        <ion-avatar item-start>
+          <img src={{listepro.logo}}>
+        </ion-avatar>
+        <h2>{{listepro.name}}</h2>
+        <button ion-button item-end icon-right clear small>
+          <ion-icon name="star"></ion-icon>
+        </button>
+        <button ion-button item-end icon-right clear small>
+          <ion-icon name="thumbs-down"></ion-icon>
+          <div>{{listepro.abus}}</div>
+        </button>
+      </ion-item>
+    </ion-card>
   </ion-list>
 </ion-content>

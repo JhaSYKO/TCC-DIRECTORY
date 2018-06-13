@@ -49,12 +49,12 @@
   "cordova": {
     "plugins": {
       "cordova-sqlite-storage": {},
-      "cordova-sms-plugin": {},
+      "mx.ferreyra.callnumber": {},
       "cordova-plugin-geolocation": {
         "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
       },
       "cordova-plugin-inappbrowser": {},
-      "mx.ferreyra.callnumber": {}
+      "cordova-sms-plugin": {}
     }
   }
 }
