@@ -6,6 +6,6 @@ export class BusinessApiSkills {
     logo:string;
     latitude: number;
     longitude: number;
-    skills: NewsApiSkill[]
+    skills: NewsApiSkill[];
     check: number;
 }
