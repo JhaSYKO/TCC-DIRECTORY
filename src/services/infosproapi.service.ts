@@ -28,10 +28,10 @@ export class InfosProApiService{
 
     public getListePro(): Promise<any>{
         const url = `${this.baseUrl}${this.businesses}`;
-        let data : any;
+        // let data : any;
         return this.http.get(url)
         .toPromise()
-        .then(response => response.json().data as ListeProApiGlobal)
+        .then(response => response.json() as ListeProApiGlobal)
         .catch(err => console.log("erreur getListePro ", err));
     }
 

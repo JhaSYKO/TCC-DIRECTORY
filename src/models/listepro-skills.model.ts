@@ -1,5 +1,6 @@
-export class InfosProSkills{
+export class ListeProSkills{
     id : number;
+    logo : string;
     name : string;
-    
+    abus: string;
 }
