@@ -1,5 +1,21 @@
-<!-- <button ion-button [navPush]="pushPage">acceder a info pro</button> -->
+<ion-header>
+    <ion-navbar item-center>
+  Faites votre recherche
+  </ion-navbar>
+</ion-header>
+
 <ion-content>
+
+    <ion-item>
+        <ion-label>Recherche de professionel par compétences :</ion-label>
+        <ion-select [(ngModel)]="toppings" multiple="true" (ionChange)="onChange($event)" >
+          <ion-option *ngFor="let data of skills.data" value={{data.id}}>{{ data.name }}</ion-option>
+        </ion-select>
+      </ion-item>
+
+    
+      <!-- <button ion-button round id="searchButton" (tap)="makeSearch()">Lancer la recherche</button> -->
+
   <ion-list >
     <ion-card  *ngFor="let listepro of liste.data" (click)="pushPageInfosPro(listepro.id)">
       <ion-item>

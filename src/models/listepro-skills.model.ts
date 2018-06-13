@@ -1,4 +1,4 @@
-export class ListeProSkills{
+export class ListeProData{
     id : number;
     logo : string;
     name : string;

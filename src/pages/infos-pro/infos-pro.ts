@@ -19,15 +19,19 @@ export class InfosProPage{
   infos: InfosProApiGlobal = new InfosProApiGlobal();
 
   constructor(public navCtrl: NavController, private infosProApiService: InfosProApiService, public navParams: NavParams, public platform: Platform) {
+   
     platform.ready().then(() => {
-      this.id = navParams.get('data');
-      console.log("test 1");
+      this.id = navParams.get('data'); //récupère la donnée "data" envoyée de la page Home
       this.infosProApiService.getInfosPro(this.id)
+      // this.infosProApiService.postSkillFilter()
       .then(newsFetched => {
-            console.log("test 2");
             this.infos = newsFetched;
             console.log(this.infos);
       }).catch(err => console.log("erreur constructor home ", err));
-    })
+    });
+
   }
+
+  
+
 }
