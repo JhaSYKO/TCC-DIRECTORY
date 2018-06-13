@@ -61,7 +61,7 @@ export class InfoProPage {
       position: this.map.getCenter()
     });
    
-    let content = "<h4>Information!</h4>";         
+    let content = "<h4>vous etes ici</h4>";         
    
     this.addInfoWindow(marker, content);
     console.log('test7');
