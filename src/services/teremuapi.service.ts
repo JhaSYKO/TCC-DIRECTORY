@@ -3,7 +3,10 @@ import { Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
-import { NewsApiSkill} from '../models/teremuapi-skills.model';
+
+
+import { NewsApiSkill } from '../models/teremuapi-skills.model';
+
 
 @Injectable()
 export class NewsApiService {
