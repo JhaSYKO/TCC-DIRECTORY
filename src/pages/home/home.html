@@ -14,10 +14,11 @@
 
 
 <ion-content >
+    <button ion-button round id="searchButton" (tap)="makeSearch()">Lancer la recherche</button>
   <ion-item>
       <ion-label>Recherche de professionel par compétences :</ion-label>
-      <ion-select [(ngModel)]="toppings" multiple="true" (click)="skillsId">
-        <ion-option *ngFor="let skills of news.skills">{{ data.name }}</ion-option>
+      <ion-select [(ngModel)]="toppings" multiple="true" (click)="showselected($event)">
+        <ion-option *ngFor="let data of news.data">{{ data.name }}</ion-option>
       </ion-select>
     </ion-item>
   <!-- <ion-badge *ngFor="let data of news.data" class="my-item" >{{ data.name }}</ion-badge> -->
