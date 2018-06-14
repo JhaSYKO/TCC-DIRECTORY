@@ -1,7 +1,7 @@
-import {ListeProData} from './listepro-skills.model';
+import {ListeProSkills} from './listepro-skills.model';
 
 export class ListeProApiGlobal{
-    data: ListeProData[];
+    data: ListeProSkills[];
     // skills : InfosProSkills[];
 
 }
