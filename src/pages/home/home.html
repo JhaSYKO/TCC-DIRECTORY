@@ -1,35 +1,33 @@
 <ion-header>
     <ion-navbar item-center>
-  Faites votre recherche
-  </ion-navbar>
-</ion-header>
-
-<ion-content>
-
-    <ion-item>
-        <ion-label>Recherche de professionel par compétences :</ion-label>
+      <ion-item>
+        <ion-label>Recherche  par compétences :</ion-label>
         <ion-select [(ngModel)]="toppings" multiple="true" (ionChange)="onChange($event)" >
           <ion-option *ngFor="let data of skills.data" value={{data.id}}>{{ data.name }}</ion-option>
         </ion-select>
       </ion-item>
+  </ion-navbar>
+</ion-header>
 
-    
-      <!-- <button ion-button round id="searchButton" (tap)="makeSearch()">Lancer la recherche</button> -->
-
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list >
     <ion-card  *ngFor="let listepro of liste.data" (click)="pushPageInfosPro(listepro.id)">
       <ion-item>
         <ion-avatar item-start>
           <img src={{listepro.logo}}>
         </ion-avatar>
-        <h2>{{listepro.name}}</h2>
-        <button ion-button item-end icon-right clear small>
+        <p>{{listepro.name}}</p>
+        <div>
+        <button ion-button item-end icon-left clear small>
           <ion-icon name="star"></ion-icon>
         </button>
-        <button ion-button item-end icon-right clear small>
+        <button ion-button item-end icon-start clear small>
           <ion-icon name="thumbs-down"></ion-icon>
           <div>{{listepro.abus}}</div>
+        
         </button>
+      </div>
       </ion-item>
     </ion-card>
   </ion-list>

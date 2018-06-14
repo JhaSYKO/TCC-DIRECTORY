@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 
 import { InfosProApiGlobal } from '../models/infosproapi-global.model';
 import { ListeProApiGlobal } from '../models/listeproapi-global.model';
+import { AbusApi } from '../models/abusapi.model';
 import { ListeProSkills } from '../models/listepro-skills.model';
 import { ListeSkillsApiGlobal } from '../models/listeskillsapi-global.model';
 import { ObservableInput, Observable } from 'rxjs/Observable';
@@ -17,6 +18,7 @@ export class InfosProApiService {
     private businesses = 'businesses';
     private search = 'search';
     private skills = 'skills';
+    private abus = 'abus/';
 
     constructor(private http: Http) {
 
@@ -28,28 +30,43 @@ export class InfosProApiService {
         return this.http.get(url)
             .toPromise()
             .then(response => response.json() as InfosProApiGlobal)
-            .catch(err => console.log("erreur getInfoPro ", err));
     }
 
     public getListePro(): Promise<any> {
         const url = `${this.baseUrl}${this.businesses}`;
-        // let data : any;
         return this.http.get(url)
             .toPromise()
             .then(response => response.json() as ListeProApiGlobal)
-            .catch(err => console.log("erreur getListePro ", err));
     }
+
+    // public getListeNamePro(): Promise<any> {
+    //     const url = `${this.baseUrl}${this.businesses}`;
+    //     return this.http.get(url)
+    //         .toPromise()
+    //         .then(response => response.json().data as ListeProSkills)
+    // }
 
     public getListeSkills(): Promise<any> {
         const url = `${this.baseUrl}${this.skills}`;
-        // let data : any;
         return this.http.get(url)
             .toPromise()
             .then(response => response.json() as ListeSkillsApiGlobal)
-            .catch(err => console.log("erreur getListeSkills ", err));
 
     }
 
+    public sendAbus(id): Promise<any> {
+        console.log("sendAbus 1 ");
+        const url = `${this.baseUrl}${this.abus}${this.business}${id}`;
+        console.log("sendAbus url ", url);
+        return this.http.get(url)
+            .toPromise()
+            .then(response => {
+                response.json() as AbusApi;
+                console.log("sendAbus reponse : ", response.json() as AbusApi);
+            
+            }).catch(err => console.log("erreur sendAbus : ", JSON.stringify(err)));
+
+    }
 
 
 

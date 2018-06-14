@@ -1,89 +1,102 @@
-<ion-header>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src={{infos.logo}}>
-      </ion-avatar>
-      <h2>{{infos.name}}</h2>
-      <button ion-button item-end icon-right clear small>
-        <ion-icon name="star"></ion-icon>
+<ion-content>
+
+  <ion-card>
+    <img src={{infos.logo}}/>
+    <ion-fab top right>
+      <button ion-fab>
+        <ion-icon src="/assets/icon/favorite.png"></ion-icon>
       </button>
-      <button ion-button item-end icon-right clear small>
-        <ion-icon name="thumbs-down"></ion-icon>
-        <div>{{infos.abus}}</div>
-      </button>
-    </ion-item>
-  </ion-header>
-  
-  <ion-content>
-  
-    <ion-list no-border>
-      <ion-list-header>
-        Descriptions
-      </ion-list-header>
-        <p>
+    </ion-fab>
+    <ion-card-content>
+      <ion-card-title>
+        {{infos.name}}
+      </ion-card-title>
+      <p>
         {{infos.description}}
       </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid class="favorite">
+    <ion-row>
+      <ion-col>
+        <ion-card class="favorite">
+          <button ion-button color="secondary" clear (click)="addFav(infos.id)">Ajouter aux favoris</button>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card>
+          <button ion-button color="danger" clear (click)="getAbus(infos.id)" >Signaler un abus</button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+  <ion-card>
+    <ion-list no-border>
+      <ion-list-header>
+        Compétence(s):
+      </ion-list-header>
       <ion-item item-end *ngFor="let skill of infos.skills">
         <h2>{{skill.name}}</h2>
       </ion-item>
     </ion-list>
-  
+  </ion-card>
+
+  <ion-card>
     <ion-list>
       <ion-list-header>
-        Contact
+        Contacts:
       </ion-list-header>
+
       <ion-item>
         <ion-avatar item-start>
-          <img src="">
+          <img src="../assets/icon/mail.png">
         </ion-avatar>
-        <h2>Mail</h2>
+        <h2>Mail:</h2>
         <p>{{infos.email}}</p>
       </ion-item>
-      <ion-item>
+
+      <ion-item (click)="openMenu()">
         <ion-avatar item-start>
-          <img src="">
+          <img src="../assets/icon/sms.png">
         </ion-avatar>
-        <h2>Mobile</h2>
+        <h2>Mobile:</h2>
         <p>{{infos.mobile}}</p>
       </ion-item>
-      <ion-item>
+
+      <ion-item (click)='dial()'>
         <ion-avatar item-start>
-          <img src="">
+          <img src="../assets/icon/phone.png">
         </ion-avatar>
-        <h2>Phone</h2>
+        <h2>Phone:</h2>
         <p>{{infos.phone}}</p>
       </ion-item>
     </ion-list>
-  
+  </ion-card>
+
+  <ion-card>
     <ion-list>
       <ion-list-header>
-        Réseaux sociaux
+        Réseaux sociaux:
       </ion-list-header>
-      <ion-item>
-        <ion-icon name="logo-facebook" item-start></ion-icon>
-        <h2>Facebook</h2>
-        <p>{{infos.facebook_url}}</p>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="logo-linkedin" item-start></ion-icon>
-        <h2>Linkedin</h2>
-        <p>{{infos.linkedin_url}}</p>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="logo-twitter" item-start></ion-icon>
-        <h2>Twitter</h2>
-        <p>{{infos.twitter_url}}</p>
+      <ion-item class="social">
+        <img src="../assets/icon/face.png" smaller (click)="openFB()">
+        <img src="../assets/icon/linkedin.png" smaller (click)="openLI()">
+        <img src="../assets/icon/twitter.png" smaller (click)="openTW()">
       </ion-item>
     </ion-list>
-  
+  </ion-card>
+
+  <ion-card (click)='openWS()'>
     <ion-list>
       <ion-list-header>
-        Site web
+        <b>Site web:</b>
+        <i>{{infos.website_url}}</i>
       </ion-list-header>
-      <ion-item>
-        <p>{{infos.website_url}}</p>
-      </ion-item>
     </ion-list>
-  
-  </ion-content>
-  
+  </ion-card>
+
+  <div #map id="map"></div>
+
+</ion-content>
