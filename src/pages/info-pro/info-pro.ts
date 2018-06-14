@@ -13,40 +13,53 @@ declare var google;
 export class InfoProPage {
 
   @ViewChild('map') mapElement: ElementRef;
-  @ViewChild('directionsPanel') directionsPanel: ElementRef;
   map: any;
   lat: any;
   lng: any;
 
- constructor(private BusinessApiSkills: BusinessApiSkills,public navCtrl: NavController, public geolocation: Geolocation) {
-  this.BusinessApiSkills = BusinessApiSkills;
-  this.startNavigating();
-  console.log('this.BusinessApiSkills.lenght');
+ constructor(public navCtrl: NavController, public geolocation: Geolocation) {
+
  }
+ 
 // Faire apparaître la map
  ionViewDidLoad() {
    this.loadMap();
-    this.geolocation.getCurrentPosition()
+    /* this.geolocation.getCurrentPosition()
     .then(pos => {
      console.log('test2');
       this.lat = pos.coords.latitude;
       this.lng = pos.coords.longitude;
     })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err)); */
  }
  
   
 
   loadMap(){
     console.log('test3');
-    this.geolocation.getCurrentPosition()
+
+    //COde pour qfficher lq position du t2l2phone
+    /* this.geolocation.getCurrentPosition()
     .then((position) => {
  
-      let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      console.log('lqt et long : ', latLng);
+      let latLng = new google.maps.LatLng( position.coords.latitude ,  position.coords.longitude );
+     
       let mapOptions = {
         center: latLng,
         zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      } */
+
+      //Afficher comme si nous etions sur la tour eiffel
+      this.geolocation.getCurrentPosition()
+    .then((position) => {
+ 
+      let latLng = new google.maps.LatLng( 48.858366, 2.294470 );
+      
+      // console.log('lqt et long : ', latLng);
+      let mapOptions = {
+        center: latLng,
+        zoom: 10,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
  
@@ -87,29 +100,5 @@ export class InfoProPage {
    
   }
 
-  startNavigating(){
- 
-    let directionsService = new google.maps.DirectionsService;
-    let directionsDisplay = new google.maps.DirectionsRenderer;
-
-    directionsDisplay.setMap(this.map);
-    directionsDisplay.setPanel(this.directionsPanel.nativeElement);
-
-    directionsService.route({
-        origin: 'position',
-        destination: 'pro',
-        travelMode: google.maps.TravelMode['FLYING']
-    }, (res, status) => {
-
-        if(status == google.maps.DirectionsStatus.OK){
-            directionsDisplay.setDirections(res);
-        } else {
-            console.warn(status);
-        }
-
-    });
-
-}
-  
 }
 
