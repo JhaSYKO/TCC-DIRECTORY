@@ -12,14 +12,15 @@ import { BusinessApiSkills } from '../models/teremuapi-businesses.model';
 export class NewsApiService {
 
     private baseUrl: string = 'http://tccdirectory.1click.pf/api/';
-    private competence: string = 'businesses';
+    private businesses: string = 'businesses';
+    private skills: 'skills';
 
     constructor (private http: Http){
 
     }
 
-    public getSkills(): any{
-        const url = `${this.baseUrl}${this.competence}`;
+    public getBusinesses(): any{
+        const url = `${this.baseUrl}${this.businesses}`;
 
         return this.http.get(url)
         .toPromise()

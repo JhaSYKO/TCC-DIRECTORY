@@ -10,6 +10,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { NewsApiService} from '../services/teremuapi.service';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { SQLite } from '@ionic-native/sqlite';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     NewsApiService,
     Geolocation,
     SplashScreen,
+    SQLite,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

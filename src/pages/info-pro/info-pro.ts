@@ -1,6 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { BusinessApiSkills } from '../../models/teremuapi-businesses.model';
+
 
 declare var google;
 
@@ -11,12 +13,15 @@ declare var google;
 export class InfoProPage {
 
   @ViewChild('map') mapElement: ElementRef;
+  @ViewChild('directionsPanel') directionsPanel: ElementRef;
   map: any;
   lat: any;
   lng: any;
 
- constructor(public navCtrl: NavController, public geolocation: Geolocation) {
-
+ constructor(private BusinessApiSkills: BusinessApiSkills,public navCtrl: NavController, public geolocation: Geolocation) {
+  this.BusinessApiSkills = BusinessApiSkills;
+  this.startNavigating();
+  console.log('this.BusinessApiSkills.lenght');
  }
 // Faire apparaître la map
  ionViewDidLoad() {
@@ -30,6 +35,8 @@ export class InfoProPage {
       .catch(err => console.log(err));
  }
  
+  
+
   loadMap(){
     console.log('test3');
     this.geolocation.getCurrentPosition()
@@ -79,5 +86,30 @@ export class InfoProPage {
     });
    
   }
+
+  startNavigating(){
+ 
+    let directionsService = new google.maps.DirectionsService;
+    let directionsDisplay = new google.maps.DirectionsRenderer;
+
+    directionsDisplay.setMap(this.map);
+    directionsDisplay.setPanel(this.directionsPanel.nativeElement);
+
+    directionsService.route({
+        origin: 'position',
+        destination: 'pro',
+        travelMode: google.maps.TravelMode['FLYING']
+    }, (res, status) => {
+
+        if(status == google.maps.DirectionsStatus.OK){
+            directionsDisplay.setDirections(res);
+        } else {
+            console.warn(status);
+        }
+
+    });
+
+}
+  
 }
 
